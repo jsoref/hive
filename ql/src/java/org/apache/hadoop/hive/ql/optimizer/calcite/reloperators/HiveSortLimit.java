@@ -98,7 +98,7 @@ public class HiveSortLimit extends Sort implements HiveRelNode {
   }
 
   @Override
-  public void implement(Implementor implementor) {
+  public void implement(Implementer implementer) {
   }
 
   public boolean isRuleCreated() {

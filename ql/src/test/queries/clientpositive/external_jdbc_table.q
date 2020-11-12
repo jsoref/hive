@@ -178,7 +178,7 @@ select ext_simple_derby_table1.fkey, ext_simple_derby_table2.dkey from ext_simpl
 
 
 
---Fails due to cast exception in SqlImplementor line 539:
+--Fails due to cast exception in SqlImplementer line 539:
 --select sum(bkey) from ext_simple_derby_table1 where ikey = 2450894 OR ikey = 2450911;
 
 

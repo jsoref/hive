@@ -152,7 +152,7 @@ public class HiveTableScan extends TableScan implements HiveRelNode {
   }
 
   @Override
-  public void implement(Implementor implementor) {
+  public void implement(Implementer implementer) {
 
   }
 

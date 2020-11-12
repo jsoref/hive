@@ -39,7 +39,7 @@ import org.apache.calcite.sql.SqlDialect;
 
 import org.apache.calcite.util.ControlFlowException;
 import org.apache.hadoop.hive.ql.optimizer.calcite.reloperators.HiveRelNode;
-import org.apache.hadoop.hive.ql.optimizer.calcite.rules.jdbc.HiveJdbcImplementor;
+import org.apache.hadoop.hive.ql.optimizer.calcite.rules.jdbc.HiveJdbcImplementer;
 
 /**
  * This is a designated RelNode that splits the Hive operators and the Jdbc operators,
@@ -80,7 +80,7 @@ public class HiveJdbcConverter extends ConverterImpl implements HiveRelNode {
   }
 
   @Override
-  public void implement(Implementor implementor) {
+  public void implement(Implementer implementer) {
 
   }
 
@@ -97,8 +97,8 @@ public class HiveJdbcConverter extends ConverterImpl implements HiveRelNode {
 
   public String generateSql() {
     SqlDialect dialect = getJdbcDialect();
-    final HiveJdbcImplementor jdbcImplementor =
-        new HiveJdbcImplementor(dialect,
+    final HiveJdbcImplementer jdbcImplementer =
+        new HiveJdbcImplementer(dialect,
             (JavaTypeFactory) getCluster().getTypeFactory());
     Project topProject;
     if (getInput() instanceof Project) {
@@ -118,8 +118,8 @@ public class HiveJdbcConverter extends ConverterImpl implements HiveRelNode {
           nodeToTranslate.getTraitSet(), nodeToTranslate,
           projects, nodeToTranslate.getRowType());
     }
-    final HiveJdbcImplementor.Result result =
-        jdbcImplementor.visit(topProject);
+    final HiveJdbcImplementer.Result result =
+        jdbcImplementer.visit(topProject);
     return result.asStatement().toSqlString(dialect).getSql();
   }
 

@@ -21,7 +21,7 @@ import com.google.common.collect.ImmutableList;
 import java.util.ArrayList;
 import java.util.List;
 import org.apache.calcite.adapter.java.JavaTypeFactory;
-import org.apache.calcite.adapter.jdbc.JdbcImplementor;
+import org.apache.calcite.adapter.jdbc.JdbcImplementer;
 import org.apache.calcite.linq4j.tree.Expressions;
 import org.apache.calcite.rel.RelFieldCollation;
 import org.apache.calcite.rel.RelNode;
@@ -44,9 +44,9 @@ import org.apache.calcite.sql.SqlNodeList;
 import org.apache.calcite.sql.SqlOperator;
 import org.apache.calcite.sql.fun.SqlStdOperatorTable;
 
-public class HiveJdbcImplementor extends JdbcImplementor {
+public class HiveJdbcImplementer extends JdbcImplementer {
 
-  public HiveJdbcImplementor(SqlDialect dialect, JavaTypeFactory typeFactory) {
+  public HiveJdbcImplementer(SqlDialect dialect, JavaTypeFactory typeFactory) {
     super(dialect, typeFactory);
   }
 
@@ -149,7 +149,7 @@ public class HiveJdbcImplementor extends JdbcImplementor {
       return SqlLiteral.createBoolean(false, POS);
     }
     if (node instanceof RexInputRef) {
-      Context joinContext = leftContext.implementor().joinContext(leftContext, rightContext);
+      Context joinContext = leftContext.implementer().joinContext(leftContext, rightContext);
       return joinContext.toSql(null, node);
     }
     if (!(node instanceof RexCall)) {
@@ -207,7 +207,7 @@ public class HiveJdbcImplementor extends JdbcImplementor {
         }
       }
       joinContext =
-          leftContext.implementor().joinContext(leftContext, rightContext);
+          leftContext.implementer().joinContext(leftContext, rightContext);
       return joinContext.toSql(null, node);
 
     case IS_NULL:
@@ -225,12 +225,12 @@ public class HiveJdbcImplementor extends JdbcImplementor {
         }
       }
       joinContext =
-          leftContext.implementor().joinContext(leftContext, rightContext);
+          leftContext.implementer().joinContext(leftContext, rightContext);
       return joinContext.toSql(null, node);
 
     default:
       joinContext =
-          leftContext.implementor().joinContext(leftContext, rightContext);
+          leftContext.implementer().joinContext(leftContext, rightContext);
       return joinContext.toSql(null, node);
     }
   }

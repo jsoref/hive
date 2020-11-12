@@ -59,7 +59,7 @@ public class HiveAggregate extends Aggregate implements HiveRelNode {
   }
 
   @Override
-  public void implement(Implementor implementor) {
+  public void implement(Implementer implementer) {
   }
 
   // getRows will call estimateRowCount

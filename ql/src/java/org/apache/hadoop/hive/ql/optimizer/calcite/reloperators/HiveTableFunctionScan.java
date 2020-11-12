@@ -68,7 +68,7 @@ public class HiveTableFunctionScan extends TableFunctionScan implements HiveRelN
   }
 
   @Override
-  public void implement(Implementor implementor) {
+  public void implement(Implementer implementer) {
 
   }
 

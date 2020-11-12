@@ -39,7 +39,7 @@ public class HiveUnion extends Union implements HiveRelNode {
   }
 
   @Override
-  public void implement(Implementor implementor) {
+  public void implement(Implementer implementer) {
   }
   //required for HiveRelDecorrelator
   public RelNode accept(RelShuttle shuttle) {

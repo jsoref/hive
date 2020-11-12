@@ -107,6 +107,6 @@ public final class HiveSortExchange extends SortExchange implements HiveRelNode 
   }
 
   @Override
-  public void implement(Implementor implementor) {
+  public void implement(Implementer implementer) {
   }
 }

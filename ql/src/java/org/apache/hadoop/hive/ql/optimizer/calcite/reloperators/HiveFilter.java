@@ -75,7 +75,7 @@ public class HiveFilter extends Filter implements HiveRelNode {
   }
 
   @Override
-  public void implement(Implementor implementor) {
+  public void implement(Implementer implementer) {
   }
 
   private static void findCorrelatedVar(RexNode node, Set<CorrelationId> allVars) {

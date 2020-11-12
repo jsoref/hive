@@ -187,7 +187,7 @@ public class HiveMaterializedViewBoxing {
     }
 
     @Override
-    public void implement(Implementor implementor) {
+    public void implement(Implementer implementer) {
     }
 
     private static final class BoxRelOptTable extends RelOptAbstractTable {

@@ -40,7 +40,7 @@ import org.apache.calcite.adapter.druid.DruidSchema;
 import org.apache.calcite.adapter.druid.DruidTable;
 import org.apache.calcite.adapter.java.JavaTypeFactory;
 import org.apache.calcite.adapter.jdbc.JdbcConvention;
-import org.apache.calcite.adapter.jdbc.JdbcImplementor;
+import org.apache.calcite.adapter.jdbc.JdbcImplementer;
 import org.apache.calcite.adapter.jdbc.JdbcRules.JdbcAggregate;
 import org.apache.calcite.adapter.jdbc.JdbcRules.JdbcFilter;
 import org.apache.calcite.adapter.jdbc.JdbcRules.JdbcJoin;
@@ -1602,10 +1602,10 @@ public class CalcitePlanner extends SemanticAnalyzer {
       }
     };
     try {
-      final JdbcImplementor jdbcImplementor =
-          new JdbcImplementor(dialect, (JavaTypeFactory) optimizedOptiqPlan.getCluster()
+      final JdbcImplementer jdbcImplementer =
+          new JdbcImplementer(dialect, (JavaTypeFactory) optimizedOptiqPlan.getCluster()
               .getTypeFactory());
-      final JdbcImplementor.Result result = jdbcImplementor.visitChild(0, optimizedOptiqPlan);
+      final JdbcImplementer.Result result = jdbcImplementer.visitChild(0, optimizedOptiqPlan);
       String sql = result.asStatement().toSqlString(dialect).getSql();
       sql = PATTERN_VARCHAR.matcher(sql).replaceAll("STRING"); // VARCHAR(INTEGER.MAX) -> STRING
       sql = PATTERN_TIMESTAMP.matcher(sql).replaceAll("TIMESTAMP"); // TIMESTAMP(9) -> TIMESTAMP

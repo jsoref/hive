@@ -21,12 +21,12 @@ import org.apache.calcite.plan.Convention;
 import org.apache.calcite.rel.RelNode;
 
 public interface HiveRelNode extends RelNode {
-  void implement(Implementor implementor);
+  void implement(Implementer implementer);
 
   /** Calling convention for relational operations that occur in Hive. */
   final Convention CONVENTION = new Convention.Impl("HIVE", HiveRelNode.class);
 
-  class Implementor {
+  class Implementer {
 
     public void visitChild(int ordinal, RelNode input) {
       assert ordinal == 0;
