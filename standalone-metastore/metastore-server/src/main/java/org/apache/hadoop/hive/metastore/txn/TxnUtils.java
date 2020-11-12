@@ -325,7 +325,7 @@ public class TxnUtils {
           buf.delete(buf.length()-newInclausePrefix.length(), buf.length());
         }
 
-        buf.setCharAt(buf.length() - 1, ')'); // replace the "commar" to finish a 'IN' clause string.
+        buf.setCharAt(buf.length() - 1, ')'); // replace the "comma" to finish a 'IN' clause string.
 
         if (addParens) {
           buf.append(")");
@@ -344,7 +344,7 @@ public class TxnUtils {
         continue;
       } else if (cursor4InClauseElements >= batchSize-1 && cursor4InClauseElements != 0) {
         // Finish the current 'IN'/'NOT IN' clause and start a new clause.
-        buf.setCharAt(buf.length() - 1, ')'); // replace the "commar".
+        buf.setCharAt(buf.length() - 1, ')'); // replace the "comma".
         buf.append(newInclausePrefix.toString());
 
         newInclausePrefixJustAppended = true;
@@ -366,7 +366,7 @@ public class TxnUtils {
     if (newInclausePrefixJustAppended) {
         buf.delete(buf.length()-newInclausePrefix.length(), buf.length());
       }
-    buf.setCharAt(buf.length() - 1, ')'); // replace the commar.
+    buf.setCharAt(buf.length() - 1, ')'); // replace the comma.
     if (addParens) {
       buf.append(")");
     }
