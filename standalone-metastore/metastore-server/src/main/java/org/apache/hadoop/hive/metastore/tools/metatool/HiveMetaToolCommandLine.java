@@ -144,7 +144,7 @@ class HiveMetaToolCommandLine {
 
     int commandCount = (isListFSRoot() ? 1 : 0) + (isExecuteJDOQL() ? 1 : 0) + (isUpdateLocation() ? 1 : 0);
     if (commandCount != 1) {
-      throw new IllegalArgumentException("exectly one of -listFSRoot, -executeJDOQL, -updateLocation must be set");
+      throw new IllegalArgumentException("exactly one of -listFSRoot, -executeJDOQL, -updateLocation must be set");
     }
 
     if (updateLocationParams != null && updateLocationParams.length != 2) {
