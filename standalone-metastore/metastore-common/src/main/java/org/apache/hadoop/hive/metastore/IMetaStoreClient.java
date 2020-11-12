@@ -1783,7 +1783,7 @@ public interface IMetaStoreClient {
    * Drop a database.
    * @param name name of the database to drop.
    * @param deleteData whether to drop the underlying HDFS directory.
-   * @param ignoreUnknownDb whether to ignore an attempt to drop a non-existant database
+   * @param ignoreUnknownDb whether to ignore an attempt to drop a non-existent database
    * @throws NoSuchObjectException No database of this name exists in the specified catalog and
    * ignoreUnknownDb is false.
    * @throws InvalidOperationException The database cannot be dropped because it is not empty.
@@ -1798,7 +1798,7 @@ public interface IMetaStoreClient {
    * Drop a database.
    * @param name database name.
    * @param deleteData whether to drop the underlying HDFS directory.
-   * @param ignoreUnknownDb whether to ignore an attempt to drop a non-existant database
+   * @param ignoreUnknownDb whether to ignore an attempt to drop a non-existent database
    * @param cascade whether to drop contained tables, etc.  If this is false and there are
    *                objects still in the database the drop will fail.
    * @throws NoSuchObjectException No database of this name exists in the specified catalog and
@@ -1816,7 +1816,7 @@ public interface IMetaStoreClient {
    *                {@link Warehouse#DEFAULT_CATALOG_NAME} will be assumed.
    * @param dbName database name.
    * @param deleteData whether to drop the underlying HDFS directory.
-   * @param ignoreUnknownDb whether to ignore an attempt to drop a non-existant database
+   * @param ignoreUnknownDb whether to ignore an attempt to drop a non-existent database
    * @param cascade whether to drop contained tables, etc.  If this is false and there are
    *                objects still in the database the drop will fail.
    * @throws NoSuchObjectException No database of this name exists in the specified catalog and
@@ -1836,7 +1836,7 @@ public interface IMetaStoreClient {
    *                {@link Warehouse#DEFAULT_CATALOG_NAME} will be assumed.
    * @param dbName database name.
    * @param deleteData whether to drop the underlying HDFS directory.
-   * @param ignoreUnknownDb whether to ignore an attempt to drop a non-existant database
+   * @param ignoreUnknownDb whether to ignore an attempt to drop a non-existent database
    * @throws NoSuchObjectException No database of this name exists in the specified catalog and
    * ignoreUnknownDb is false.
    * @throws InvalidOperationException The database contains objects and cascade is false.
