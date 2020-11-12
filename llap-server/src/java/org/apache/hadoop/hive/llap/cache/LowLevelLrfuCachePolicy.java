@@ -711,7 +711,7 @@ public final class LowLevelLrfuCachePolicy implements LowLevelCachePolicy {
 
   /**
    * Metrics provider for the LRFU cache policy.
-   * An instance of this class is providing JMX (through haddoop metrics)
+   * An instance of this class is providing JMX (through hadoop metrics)
    * statistics for the LRFU cache policy for monitoring.
    */
   @Metrics(about = "LRFU Cache Policy Metrics", context = "cache")
