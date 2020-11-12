@@ -665,7 +665,7 @@ public class CalcitePlanner extends SemanticAnalyzer {
           }
           this.ctx.setCboInfo(cboMsg);
 
-          // Determine if we should re-throw the exception OR if we try to mark plan as reAnayzeAST to retry
+          // Determine if we should re-throw the exception OR if we try to mark plan as reAnalyzeAST to retry
           // planning as non-CBO.
           if (e instanceof CalciteSubquerySemanticException || e instanceof CalciteViewSemanticException
               || e instanceof CalciteSubqueryRuntimeException) {
