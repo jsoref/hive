@@ -692,12 +692,12 @@ public final class LowLevelLrfuCachePolicy implements LowLevelCachePolicy {
     TotalData("Total amount of bytes, used for data"),
     TotalMeta("Total amount of bytes, used for meta data");
 
-    private final String description; // metric explaination
+    private final String description; // metric explanation
 
     /**
      * Creates a new enum value.
      *
-     * @param description The explaination of the metric
+     * @param description The explanation of the metric
      */
     PolicyInformation(String description) {
       this.description = description;
