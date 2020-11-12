@@ -2610,7 +2610,7 @@ public final class Utilities {
     final AtomicLong totalFileCount = new AtomicLong(0L);
     final AtomicLong totalDirectoryCount = new AtomicLong(0L);
 
-    HiveInterruptCallback interrup = HiveInterruptUtils.add(new HiveInterruptCallback() {
+    HiveInterruptCallback interrupt = HiveInterruptUtils.add(new HiveInterruptCallback() {
       @Override
       public void interrupt() {
         for (Path path : pathNeedProcess) {
@@ -2736,7 +2736,7 @@ public final class Utilities {
       summary[2] += totalDirectoryCount.get();
     } finally {
       executor.shutdownNow();
-      HiveInterruptUtils.remove(interrup);
+      HiveInterruptUtils.remove(interrupt);
     }
   }
 
