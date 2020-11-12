@@ -592,7 +592,7 @@ public class MoveTask extends Task<MoveWork> implements Serializable {
             db, table, partn, ti.bucketCols, ti.numBuckets, ti.sortCols);
       }
 
-      WriteEntity enty = new WriteEntity(partn,
+      WriteEntity entity = new WriteEntity(partn,
         getWriteType(tbd, work.getLoadTableWork().getWriteType()));
       if (work.getOutputs() != null) {
         DDLUtils.addIfAbsentByName(enty, work.getOutputs());
