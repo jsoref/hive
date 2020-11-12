@@ -107,7 +107,7 @@ import org.apache.tez.runtime.library.api.TezRuntimeConfiguration;
 import org.apache.tez.test.MiniTezCluster;
 
 /**
- * Implemention of shims against Hadoop 0.23.0.
+ * Implementation of shims against Hadoop 0.23.0.
  */
 public class Hadoop23Shims extends HadoopShimsSecure {
 
