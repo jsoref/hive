@@ -245,7 +245,7 @@ public class TestLazySimpleFast {
         }
       }
       if (!VerifyLazy.lazyCompare(typeInfo, complexFieldObj, expectedObject)) {
-        fail("Comparision failed typeInfo " + typeInfo.toString());
+        fail("Comparison failed typeInfo " + typeInfo.toString());
       }
     }
   }
