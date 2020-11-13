@@ -1083,13 +1083,13 @@ public class SharedCache {
       }
     }
 
-    public ColumStatsWithWriteId getPartitionColStats(List<String> partVal, String colName, String writeIdList) {
+    public ColumnStatsWithWriteId getPartitionColStats(List<String> partVal, String colName, String writeIdList) {
       try {
         tableLock.readLock().lock();
         ColumnStatisticsObj statisticsObj =
             partitionColStatsCache.get(CacheUtils.buildPartitonColStatsCacheKey(partVal, colName));
         if (statisticsObj == null || writeIdList == null) {
-          return new ColumStatsWithWriteId(-1, statisticsObj);
+          return new ColumnStatsWithWriteId(-1, statisticsObj);
         }
         PartitionWrapper wrapper = partitionCache.get(CacheUtils.buildPartitionCacheKey(partVal));
         if (wrapper == null) {
@@ -1105,7 +1105,7 @@ public class SharedCache {
           LOG.debug("Write id list " + writeIdList + " is not compatible with write id " + writeId);
           return null;
         }
-        return new ColumStatsWithWriteId(writeId, statisticsObj);
+        return new ColumnStatsWithWriteId(writeId, statisticsObj);
       } finally {
         tableLock.readLock().unlock();
       }
@@ -1485,11 +1485,11 @@ public class SharedCache {
     }
   }
 
-  public static class ColumStatsWithWriteId {
+  public static class ColumnStatsWithWriteId {
     private long writeId;
     private ColumnStatisticsObj columnStatisticsObj;
 
-    public ColumStatsWithWriteId(long writeId, ColumnStatisticsObj columnStatisticsObj) {
+    public ColumnStatsWithWriteId(long writeId, ColumnStatisticsObj columnStatisticsObj) {
       this.writeId = writeId;
       this.columnStatisticsObj = columnStatisticsObj;
     }
@@ -2608,9 +2608,9 @@ public class SharedCache {
     }
   }
 
-  public ColumStatsWithWriteId getPartitionColStatsFromCache(String catName, String dbName, String tblName,
+  public ColumnStatsWithWriteId getPartitionColStatsFromCache(String catName, String dbName, String tblName,
       List<String> partVal, String colName, String writeIdList) {
-    ColumStatsWithWriteId colStatObj = null;
+    ColumnStatsWithWriteId colStatObj = null;
     try {
       cacheLock.readLock().lock();
       TableWrapper tblWrapper = tableCache.getIfPresent(CacheUtils.buildTableKey(catName, dbName, tblName));
