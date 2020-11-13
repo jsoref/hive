@@ -388,22 +388,22 @@ public class JsonMetaDataFormatter implements MetaDataFormatter {
       HiveConf conf, Map<String, String> part, Partition par)
           throws HiveException, IOException {
     String tblLoc = null;
-    String inputFormattCls = null;
-    String outputFormattCls = null;
+    String inputFormatCls = null;
+    String outputFormatCls = null;
     if (part != null) {
       if (par != null) {
         if (par.getLocation() != null) {
           tblLoc = par.getDataLocation().toString();
         }
-        inputFormattCls = par.getInputFormatClass() == null ? null : par.getInputFormatClass().getName();
-        outputFormattCls = par.getOutputFormatClass() == null ? null : par.getOutputFormatClass().getName();
+        inputFormatCls = par.getInputFormatClass() == null ? null : par.getInputFormatClass().getName();
+        outputFormatCls = par.getOutputFormatClass() == null ? null : par.getOutputFormatClass().getName();
       }
     } else {
       if (tbl.getPath() != null) {
         tblLoc = tbl.getDataLocation().toString();
       }
-      inputFormattCls = tbl.getInputFormatClass() == null ? null : tbl.getInputFormatClass().getName();
-      outputFormattCls = tbl.getOutputFormatClass() == null ? null : tbl.getOutputFormatClass().getName();
+      inputFormatCls = tbl.getInputFormatClass() == null ? null : tbl.getInputFormatClass().getName();
+      outputFormatCls = tbl.getOutputFormatClass() == null ? null : tbl.getOutputFormatClass().getName();
     }
 
     MapBuilder builder = MapBuilder.create();
@@ -412,8 +412,8 @@ public class JsonMetaDataFormatter implements MetaDataFormatter {
     builder.put("ownerType", (tbl.getOwnerType() != null) ? tbl.getOwnerType().name() : "null");
     builder.put("owner", tbl.getOwner());
     builder.put("location", tblLoc);
-    builder.put("inputFormat", inputFormattCls);
-    builder.put("outputFormat", outputFormattCls);
+    builder.put("inputFormat", inputFormatCls);
+    builder.put("outputFormat", outputFormatCls);
     builder.put("columns", createColumnsInfo(tbl.getCols(), new ArrayList<ColumnStatisticsObj>()));
 
     builder.put("partitioned", tbl.isPartitioned());

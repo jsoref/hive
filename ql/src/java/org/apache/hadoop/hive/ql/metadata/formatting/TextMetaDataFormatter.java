@@ -343,22 +343,22 @@ class TextMetaDataFormatter implements MetaDataFormatter {
         Table tbl = iterTables.next();
         String tableName = tbl.getTableName();
         String tblLoc = null;
-        String inputFormattCls = null;
-        String outputFormattCls = null;
+        String inputFormatCls = null;
+        String outputFormatCls = null;
         if (part != null) {
           if (par != null) {
             if (par.getLocation() != null) {
               tblLoc = par.getDataLocation().toString();
             }
-            inputFormattCls = par.getInputFormatClass() == null ? null : par.getInputFormatClass().getName();
-            outputFormattCls = par.getOutputFormatClass() == null ? null : par.getOutputFormatClass().getName();
+            inputFormatCls = par.getInputFormatClass() == null ? null : par.getInputFormatClass().getName();
+            outputFormatCls = par.getOutputFormatClass() == null ? null : par.getOutputFormatClass().getName();
           }
         } else {
           if (tbl.getPath() != null) {
             tblLoc = tbl.getDataLocation().toString();
           }
-          inputFormattCls = tbl.getInputFormatClass() == null ? null : tbl.getInputFormatClass().getName();
-          outputFormattCls = tbl.getOutputFormatClass() == null ? null : tbl.getOutputFormatClass().getName();
+          inputFormatCls = tbl.getInputFormatClass() == null ? null : tbl.getInputFormatClass().getName();
+          outputFormatCls = tbl.getOutputFormatClass() == null ? null : tbl.getOutputFormatClass().getName();
         }
 
         String owner = tbl.getOwner();
@@ -377,9 +377,9 @@ class TextMetaDataFormatter implements MetaDataFormatter {
         outStream.write(terminator);
         outStream.write(("location:" + tblLoc).getBytes("UTF-8"));
         outStream.write(terminator);
-        outStream.write(("inputformat:" + inputFormattCls).getBytes("UTF-8"));
+        outStream.write(("inputformat:" + inputFormatCls).getBytes("UTF-8"));
         outStream.write(terminator);
-        outStream.write(("outputformat:" + outputFormattCls).getBytes("UTF-8"));
+        outStream.write(("outputformat:" + outputFormatCls).getBytes("UTF-8"));
         outStream.write(terminator);
         outStream.write(("columns:" + ddlCols).getBytes("UTF-8"));
         outStream.write(terminator);
