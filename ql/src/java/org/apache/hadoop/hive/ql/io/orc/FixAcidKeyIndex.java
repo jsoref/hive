@@ -232,7 +232,7 @@ public class FixAcidKeyIndex {
         }
       }
 
-      // For last stripe we need to get the last trasactionId/bucket/rowId from the last row.
+      // For last stripe we need to get the last transactionId/bucket/rowId from the last row.
       long lastRow = reader.getNumberOfRows() - 1;
       //RecordReader rr = reader.rows();
       try (RecordReader rr = reader.rows()) {

@@ -304,7 +304,7 @@ public class ObjectStore implements RawStore, Configurable {
   private DatabaseProduct dbType = null;
   private PartitionExpressionProxy expressionProxy = null;
   private Configuration conf;
-  private volatile int openTrasactionCalls = 0;
+  private volatile int openTransactionCalls = 0;
   private Transaction currentTransaction = null;
   private TXN_STATUS transactionStatus = TXN_STATUS.NO_STATE;
   private Pattern partitionValidationPattern;
@@ -340,7 +340,7 @@ public class ObjectStore implements RawStore, Configurable {
     pm = null;
     directSql = null;
     expressionProxy = null;
-    openTrasactionCalls = 0;
+    openTransactionCalls = 0;
     currentTransaction = null;
     transactionStatus = TXN_STATUS.NO_STATE;
 
@@ -538,8 +538,8 @@ public class ObjectStore implements RawStore, Configurable {
 
   @Override
   public boolean openTransaction() {
-    openTrasactionCalls++;
-    if (openTrasactionCalls == 1) {
+    openTransactionCalls++;
+    if (openTransactionCalls == 1) {
       currentTransaction = pm.currentTransaction();
       currentTransaction.begin();
       transactionStatus = TXN_STATUS.OPEN;
@@ -553,7 +553,7 @@ public class ObjectStore implements RawStore, Configurable {
     }
 
     boolean result = currentTransaction.isActive();
-    debugLog("Open transaction: count = " + openTrasactionCalls + ", isActive = " + result);
+    debugLog("Open transaction: count = " + openTransactionCalls + ", isActive = " + result);
     return result;
   }
 
@@ -570,24 +570,24 @@ public class ObjectStore implements RawStore, Configurable {
       debugLog("Commit transaction: rollback");
       return false;
     }
-    if (openTrasactionCalls <= 0) {
+    if (openTransactionCalls <= 0) {
       RuntimeException e = new RuntimeException("commitTransaction was called but openTransactionCalls = "
-          + openTrasactionCalls + ". This probably indicates that there are unbalanced " +
+          + openTransactionCalls + ". This probably indicates that there are unbalanced " +
           "calls to openTransaction/commitTransaction");
       LOG.error("Unbalanced calls to open/commit Transaction", e);
       throw e;
     }
     if (!currentTransaction.isActive()) {
       RuntimeException e = new RuntimeException("commitTransaction was called but openTransactionCalls = "
-          + openTrasactionCalls + ". This probably indicates that there are unbalanced " +
+          + openTransactionCalls + ". This probably indicates that there are unbalanced " +
           "calls to openTransaction/commitTransaction");
       LOG.error("Unbalanced calls to open/commit Transaction", e);
       throw e;
     }
-    openTrasactionCalls--;
-    debugLog("Commit transaction: count = " + openTrasactionCalls + ", isactive "+ currentTransaction.isActive());
+    openTransactionCalls--;
+    debugLog("Commit transaction: count = " + openTransactionCalls + ", isactive "+ currentTransaction.isActive());
 
-    if ((openTrasactionCalls == 0) && currentTransaction.isActive()) {
+    if ((openTransactionCalls == 0) && currentTransaction.isActive()) {
       transactionStatus = TXN_STATUS.COMMITTED;
       currentTransaction.commit();
     }
@@ -611,8 +611,8 @@ public class ObjectStore implements RawStore, Configurable {
    */
   @Override
   public void rollbackTransaction() {
-    if (openTrasactionCalls < 1) {
-      debugLog("rolling back transaction: no open transactions: " + openTrasactionCalls);
+    if (openTransactionCalls < 1) {
+      debugLog("rolling back transaction: no open transactions: " + openTransactionCalls);
       return;
     }
     debugLog("Rollback transaction, isActive: " + isActiveTransaction());
@@ -621,7 +621,7 @@ public class ObjectStore implements RawStore, Configurable {
         currentTransaction.rollback();
       }
     } finally {
-      openTrasactionCalls = 0;
+      openTransactionCalls = 0;
       transactionStatus = TXN_STATUS.ROLLBACK;
       // remove all detached objects from the cache, since the transaction is
       // being rolled back they are no longer relevant, and this prevents them
