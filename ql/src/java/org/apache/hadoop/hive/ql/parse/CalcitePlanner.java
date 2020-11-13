@@ -3061,7 +3061,7 @@ public class CalcitePlanner extends SemanticAnalyzer {
         assert (false);
       }
 
-      // 4. Get Join Condn
+      // 4. Get Join Cond
       ASTNode joinCond = (ASTNode) joinParseTree.getChild(2);
 
       // 5. Create Join rel
