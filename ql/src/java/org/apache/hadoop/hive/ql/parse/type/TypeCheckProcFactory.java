@@ -821,7 +821,7 @@ public class TypeCheckProcFactory<T> {
           if (error != null) {
             throw new UDFArgumentException(error);
           }
-          // To  make the error output be consistency, get the other side type name that comparing with biginit.
+          // To  make the error output be consistency, get the other side type name that comparing with bigint.
           String type = oiTypeInfo0.getTypeName();
           if (!oiTypeInfo1.equals(TypeInfoFactory.longTypeInfo)) {
             type = oiTypeInfo1.getTypeName();
