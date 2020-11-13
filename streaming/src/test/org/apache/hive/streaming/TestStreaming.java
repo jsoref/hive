@@ -2005,7 +2005,7 @@ public class TestStreaming {
         Path lengthFile = OrcAcidUtils.getSideFile(stat.getPath());
         Assert.assertTrue(lengthFile + " missing", fs.exists(lengthFile));
         long lengthFileSize = fs.getFileStatus(lengthFile).getLen();
-        Assert.assertTrue("Expected " + lengthFile + " to be non empty. lengh=" +
+        Assert.assertTrue("Expected " + lengthFile + " to be non empty. length=" +
           lengthFileSize, lengthFileSize > 0);
         long logicalLength = AcidUtils.getLogicalLength(fs, stat);
         long actualLength = stat.getLen();
@@ -2030,7 +2030,7 @@ public class TestStreaming {
         Path lengthFile = OrcAcidUtils.getSideFile(stat.getPath());
         Assert.assertTrue(lengthFile + " missing", fs.exists(lengthFile));
         long lengthFileSize = fs.getFileStatus(lengthFile).getLen();
-        Assert.assertTrue("Expected " + lengthFile + " to be non empty. lengh=" +
+        Assert.assertTrue("Expected " + lengthFile + " to be non empty. length=" +
           lengthFileSize, lengthFileSize > 0);
         long logicalLength = AcidUtils.getLogicalLength(fs, stat);
         long actualLength = stat.getLen();
