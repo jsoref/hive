@@ -2522,7 +2522,7 @@ public class SemanticAnalyzer extends BaseSemanticAnalyzer {
   }
 
   /**
-   * Compares to path key encryption strenghts.
+   * Compares to path key encryption strengths.
    *
    * @param p1 Path to an HDFS file system
    * @param p2 Path to an HDFS file system
