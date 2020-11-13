@@ -618,7 +618,7 @@ public class Commands {
         "supportsSubqueriesInComparisons",
         "supportsSubqueriesInExists",
         "supportsSubqueriesInIns",
-        "supportsSubqueriesInQuantifieds",
+        "supportsSubqueriesInQuantifiers",
         "supportsTableCorrelationNames",
         "supportsTransactions",
         "supportsUnion",

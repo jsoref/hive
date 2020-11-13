@@ -1170,7 +1170,7 @@ public class HiveDatabaseMetaData implements DatabaseMetaData {
     throw new SQLFeatureNotSupportedException("Method not supported");
   }
 
-  public boolean supportsSubqueriesInQuantifieds() throws SQLException {
+  public boolean supportsSubqueriesInQuantifiers() throws SQLException {
     throw new SQLFeatureNotSupportedException("Method not supported");
   }
 
