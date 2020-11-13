@@ -808,7 +808,7 @@ public class Exec extends HplsqlBaseVisitor<Integer> {
     new FunctionString(this).register(builtinFunctions);
     new FunctionOra(this).register(builtinFunctions);
     if ("hms".equalsIgnoreCase(System.getProperty("hplsql.storage"))) {
-      function = new HmsFunction(this, getMsc(System.getProperty("hplsq.metastore.uris", "thrift://localhost:9083")), builtinFunctions);
+      function = new HmsFunction(this, getMsc(System.getProperty("hplsql.metastore.uris", "thrift://localhost:9083")), builtinFunctions);
     } else {
       function = new InMemoryFunction(this, builtinFunctions);
     }
