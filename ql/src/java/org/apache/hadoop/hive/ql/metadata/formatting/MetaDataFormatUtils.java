@@ -757,7 +757,7 @@ public final class MetaDataFormatUtils {
   }
 
   /**
-   * Print the rigth padding, with the given column widths
+   * Print the right padding, with the given column widths
    * @param tableInfo The buffer to write to
    * @param columnWidths The column widths
    */
