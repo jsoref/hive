@@ -61,7 +61,7 @@ public class TestCachedStoreUpdateUsingEvents {
     MetastoreConf.setBoolVar(conf, ConfVars.AGGREGATE_STATS_CACHE_ENABLED, false);
     MetastoreConf.setBoolVar(conf, ConfVars.REPLCMENABLED, true);
     MetastoreConf.setVar(conf, ConfVars.REPLCMDIR, "cmroot");
-    MetaStoreTestUtils.setConfForStandloneMode(conf);
+    MetaStoreTestUtils.setConfForStandaloneMode(conf);
 
     TxnDbUtil.prepDb(conf);
 

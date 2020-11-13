@@ -141,7 +141,7 @@ public class TestObjectStore {
   public void setUp() throws Exception {
     conf = MetastoreConf.newMetastoreConf();
     MetastoreConf.setBoolVar(conf, MetastoreConf.ConfVars.HIVE_IN_TEST, true);
-    MetaStoreTestUtils.setConfForStandloneMode(conf);
+    MetaStoreTestUtils.setConfForStandaloneMode(conf);
 
     setupRandomObjectStoreUrl();
 
@@ -874,7 +874,7 @@ public class TestObjectStore {
     String value1 = "another_value";
     Assume.assumeTrue(System.getProperty(key) == null);
     Configuration localConf = MetastoreConf.newMetastoreConf();
-    MetaStoreTestUtils.setConfForStandloneMode(localConf);
+    MetaStoreTestUtils.setConfForStandaloneMode(localConf);
     localConf.set(key, value);
     localConf.set(key1, value1);
     objectStore = new ObjectStore();
@@ -966,7 +966,7 @@ public class TestObjectStore {
             .debug(NUM_THREADS + " threads going to add notification"));
 
     Configuration conf = MetastoreConf.newMetastoreConf();
-    MetaStoreTestUtils.setConfForStandloneMode(conf);
+    MetaStoreTestUtils.setConfForStandaloneMode(conf);
     /*
        Below are the properties that need to be set based on what database this test is going to be run
      */
@@ -1055,7 +1055,7 @@ public class TestObjectStore {
       // DN class initialization can reach a deadlock situation
       // in case the one holding the write lock doesn't get a connection from the CP manager
       conf.set(dataSourceProp, Integer.toString( 2 * numThreads ));
-      MetaStoreTestUtils.setConfForStandloneMode(conf);
+      MetaStoreTestUtils.setConfForStandaloneMode(conf);
       results.add(executor.submit(new Callable<Void>() {
         @Override
         public Void call() throws Exception {
