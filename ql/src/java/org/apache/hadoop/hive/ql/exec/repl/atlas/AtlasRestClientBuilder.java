@@ -41,7 +41,7 @@ public class AtlasRestClientBuilder {
   private static final String ATLAS_PROPERTY_CLIENT_HA_SLEEP_INTERVAL_MS_KEY = "atlas.client.ha.sleep.interval.ms";
   private static final String ATLAS_PROPERTY_REST_ADDRESS = "atlas.rest.address";
   private static final String ATLAS_PROPERTY_AUTH_KERBEROS = "atlas.authentication.method.kerberos";
-  private static final String URL_SEPERATOR = ",";
+  private static final String URL_SEPARATOR = ",";
 
   private UserGroupInformation userGroupInformation;
   protected String incomingUrl;
@@ -49,8 +49,8 @@ public class AtlasRestClientBuilder {
 
   public AtlasRestClientBuilder(String urls) {
     this.incomingUrl = urls;
-    if (urls.contains(URL_SEPERATOR)) {
-      this.baseUrls = urls.split(URL_SEPERATOR);
+    if (urls.contains(URL_SEPARATOR)) {
+      this.baseUrls = urls.split(URL_SEPARATOR);
     } else {
       this.baseUrls = new String[]{urls};
     }
