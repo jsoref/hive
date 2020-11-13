@@ -243,7 +243,7 @@ public abstract class BaseSemanticAnalyzer {
                     .getText());
           break;
         default:
-          throw new AssertionError("Unkown Token: " + rowChild);
+          throw new AssertionError("Unknown Token: " + rowChild);
         }
       }
     }
