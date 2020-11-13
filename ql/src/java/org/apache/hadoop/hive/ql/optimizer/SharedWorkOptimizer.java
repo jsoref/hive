@@ -1705,7 +1705,7 @@ public class SharedWorkOptimizer extends Transform {
       // We cannot merge
       return false;
     }
-    // 3) We check whether we will end up with same operators inputing on same work.
+    // 3) We check whether we will end up with same operators inputting on same work.
     //
     //       Work1        (merge TS in W2 & W3)        Work1
     //       /   \                  ->                  | |       X
