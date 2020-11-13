@@ -2520,7 +2520,7 @@ public class Exec extends HplsqlBaseVisitor<Integer> {
   }
   
   /**
-   * Trace values retrived from the database
+   * Trace values retrieved from the database
    */
   public void trace(ParserRuleContext ctx, Var var, ResultSetMetaData rm, int idx) throws SQLException {
     if (var.type != Var.Type.ROW) {
