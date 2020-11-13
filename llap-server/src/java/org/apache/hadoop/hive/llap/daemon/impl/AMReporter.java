@@ -103,7 +103,7 @@ public class AMReporter extends AbstractService {
   private final RetryPolicy retryPolicy;
   private final long retryTimeout;
   private final SocketFactory socketFactory;
-  private final DelayQueue<AMNodeInfo> pendingHeartbeatQueeu = new DelayQueue<>();
+  private final DelayQueue<AMNodeInfo> pendingHeartbeatQueue = new DelayQueue<>();
   private final AtomicReference<InetSocketAddress> localAddress;
   private final long heartbeatInterval;
   private final AtomicBoolean isShutdown = new AtomicBoolean(false);
@@ -218,7 +218,7 @@ public class AMReporter extends AbstractService {
         // Add to the queue only the first time this is registered, and on
         // subsequent instances when it's taken off the queue.
         amNodeInfo.setNextHeartbeatTime(System.currentTimeMillis() + heartbeatInterval);
-        pendingHeartbeatQueeu.add(amNodeInfo);
+        pendingHeartbeatQueue.add(amNodeInfo);
         // AMNodeInfo will only be cleared when a queryComplete is received for this query, or
         // when we detect a failure on the AM side (failure to heartbeat).
         // A single queueLookupCallable is added here. We have to make sure one instance stays
@@ -306,7 +306,7 @@ public class AMReporter extends AbstractService {
     protected Void callInternal() {
       while (!isShutdown.get() && !Thread.currentThread().isInterrupted()) {
         try {
-          final AMNodeInfo amNodeInfo = pendingHeartbeatQueeu.take();
+          final AMNodeInfo amNodeInfo = pendingHeartbeatQueue.take();
           if (amNodeInfo.hasAmFailed() || amNodeInfo.isDone()) {
             synchronized (knownAppMasters) {
               if (LOG.isDebugEnabled()) {
@@ -322,7 +322,7 @@ public class AMReporter extends AbstractService {
             // in case new tasks come in later.
             long next = System.currentTimeMillis() + heartbeatInterval;
             amNodeInfo.setNextHeartbeatTime(next);
-            pendingHeartbeatQueeu.add(amNodeInfo);
+            pendingHeartbeatQueue.add(amNodeInfo);
 
             // Send an actual heartbeat only if the task count is > 0
             if (amNodeInfo.getTaskCount() > 0) {
