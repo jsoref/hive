@@ -1860,7 +1860,7 @@ public class ObjectStore implements RawStore, Configurable {
       query.declareParameters("java.lang.String db, java.lang.String cat, java.util.Collection tbl_names");
       Collection mtables = (Collection) query.execute(db, catName, lowered_tbl_names);
       if (mtables == null || mtables.isEmpty()) {
-        // Need to differentiate between an unmatched pattern and a non-existent database
+        // Need to differentiate between an unmatched pattern and a nonexistent database
         dbExistsQuery = pm.newQuery(MDatabase.class, "name == db && catalogName == cat");
         dbExistsQuery.declareParameters("java.lang.String db, java.lang.String cat");
         dbExistsQuery.setUnique(true);
