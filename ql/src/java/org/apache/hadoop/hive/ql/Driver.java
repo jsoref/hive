@@ -257,7 +257,7 @@ public class Driver implements IDriver {
 
       lockAndRespond();
 
-      int retryShapshotCnt = 0;
+      int retrySnapshotCnt = 0;
       int maxRetrySnapshotCnt = HiveConf.getIntVar(driverContext.getConf(),
         HiveConf.ConfVars.HIVE_TXN_MAX_RETRYSNAPSHOT_COUNT);
 
@@ -266,7 +266,7 @@ public class Driver implements IDriver {
           driverContext.setOutdatedTxn(false);
           // Inserts will not invalidate the snapshot, that could cause duplicates.
           if (!driverTxnHandler.isValidTxnListState()) {
-            LOG.info("Re-compiling after acquiring locks, attempt #" + retryShapshotCnt);
+            LOG.info("Re-compiling after acquiring locks, attempt #" + retrySnapshotCnt);
             // Snapshot was outdated when locks were acquired, hence regenerate context, txn list and retry.
             // TODO: Lock acquisition should be moved before analyze, this is a bit hackish.
             // Currently, we acquire a snapshot, compile the query with that snapshot, and then - acquire locks.
@@ -299,15 +299,15 @@ public class Driver implements IDriver {
           }
           // Re-check snapshot only in case we had to release locks and open a new transaction,
           // otherwise exclusive locks should protect output tables/partitions in snapshot from concurrent writes.
-        } while (driverContext.isOutdatedTxn() && ++retryShapshotCnt <= maxRetrySnapshotCnt);
+        } while (driverContext.isOutdatedTxn() && ++retrySnapshotCnt <= maxRetrySnapshotCnt);
 
-        if (retryShapshotCnt > maxRetrySnapshotCnt) {
+        if (retrySnapshotCnt > maxRetrySnapshotCnt) {
           // Throw exception
           HiveException e = new HiveException(
               "Operation could not be executed, " + SNAPSHOT_WAS_OUTDATED_WHEN_LOCKS_WERE_ACQUIRED + ".");
           DriverUtils.handleHiveException(driverContext, e, 14, null);
 
-        } else if (retryShapshotCnt != 0) {
+        } else if (retrySnapshotCnt != 0) {
           //Reset the PerfLogger
           perfLogger = SessionState.getPerfLogger(true);
 
