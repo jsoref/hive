@@ -449,7 +449,7 @@ public class TestTxnHandler {
   }
 
   @Test
-  public void testLockDifferentTableDoesntLockPartition() throws Exception {
+  public void testLockDifferentTableDoesNotLockPartition() throws Exception {
     // Test that locking a table prevents locking of partitions of the table
     LockComponent comp = new LockComponent(LockType.EXCLUSIVE, LockLevel.DB, "mydb");
     comp.setTablename("mytable");
