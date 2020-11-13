@@ -36007,27 +36007,27 @@ void WMDropTriggerResponse::printTo(std::ostream& out) const {
 }
 
 
-WMGetTriggersForResourePlanRequest::~WMGetTriggersForResourePlanRequest() noexcept {
+WMGetTriggersForResourcePlanRequest::~WMGetTriggersForResourcePlanRequest() noexcept {
 }
 
 
-void WMGetTriggersForResourePlanRequest::__set_resourcePlanName(const std::string& val) {
+void WMGetTriggersForResourcePlanRequest::__set_resourcePlanName(const std::string& val) {
   this->resourcePlanName = val;
 __isset.resourcePlanName = true;
 }
 
-void WMGetTriggersForResourePlanRequest::__set_ns(const std::string& val) {
+void WMGetTriggersForResourcePlanRequest::__set_ns(const std::string& val) {
   this->ns = val;
 __isset.ns = true;
 }
-std::ostream& operator<<(std::ostream& out, const WMGetTriggersForResourePlanRequest& obj)
+std::ostream& operator<<(std::ostream& out, const WMGetTriggersForResourcePlanRequest& obj)
 {
   obj.printTo(out);
   return out;
 }
 
 
-uint32_t WMGetTriggersForResourePlanRequest::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t WMGetTriggersForResourcePlanRequest::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   ::apache::thrift::protocol::TInputRecursionTracker tracker(*iprot);
   uint32_t xfer = 0;
@@ -36076,10 +36076,10 @@ uint32_t WMGetTriggersForResourePlanRequest::read(::apache::thrift::protocol::TP
   return xfer;
 }
 
-uint32_t WMGetTriggersForResourePlanRequest::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t WMGetTriggersForResourcePlanRequest::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
   ::apache::thrift::protocol::TOutputRecursionTracker tracker(*oprot);
-  xfer += oprot->writeStructBegin("WMGetTriggersForResourePlanRequest");
+  xfer += oprot->writeStructBegin("WMGetTriggersForResourcePlanRequest");
 
   if (this->__isset.resourcePlanName) {
     xfer += oprot->writeFieldBegin("resourcePlanName", ::apache::thrift::protocol::T_STRING, 1);
@@ -36096,49 +36096,49 @@ uint32_t WMGetTriggersForResourePlanRequest::write(::apache::thrift::protocol::T
   return xfer;
 }
 
-void swap(WMGetTriggersForResourePlanRequest &a, WMGetTriggersForResourePlanRequest &b) {
+void swap(WMGetTriggersForResourcePlanRequest &a, WMGetTriggersForResourcePlanRequest &b) {
   using ::std::swap;
   swap(a.resourcePlanName, b.resourcePlanName);
   swap(a.ns, b.ns);
   swap(a.__isset, b.__isset);
 }
 
-WMGetTriggersForResourePlanRequest::WMGetTriggersForResourePlanRequest(const WMGetTriggersForResourePlanRequest& other1304) {
+WMGetTriggersForResourcePlanRequest::WMGetTriggersForResourcePlanRequest(const WMGetTriggersForResourcePlanRequest& other1304) {
   resourcePlanName = other1304.resourcePlanName;
   ns = other1304.ns;
   __isset = other1304.__isset;
 }
-WMGetTriggersForResourePlanRequest& WMGetTriggersForResourePlanRequest::operator=(const WMGetTriggersForResourePlanRequest& other1305) {
+WMGetTriggersForResourcePlanRequest& WMGetTriggersForResourcePlanRequest::operator=(const WMGetTriggersForResourcePlanRequest& other1305) {
   resourcePlanName = other1305.resourcePlanName;
   ns = other1305.ns;
   __isset = other1305.__isset;
   return *this;
 }
-void WMGetTriggersForResourePlanRequest::printTo(std::ostream& out) const {
+void WMGetTriggersForResourcePlanRequest::printTo(std::ostream& out) const {
   using ::apache::thrift::to_string;
-  out << "WMGetTriggersForResourePlanRequest(";
+  out << "WMGetTriggersForResourcePlanRequest(";
   out << "resourcePlanName="; (__isset.resourcePlanName ? (out << to_string(resourcePlanName)) : (out << "<null>"));
   out << ", " << "ns="; (__isset.ns ? (out << to_string(ns)) : (out << "<null>"));
   out << ")";
 }
 
 
-WMGetTriggersForResourePlanResponse::~WMGetTriggersForResourePlanResponse() noexcept {
+WMGetTriggersForResourcePlanResponse::~WMGetTriggersForResourcePlanResponse() noexcept {
 }
 
 
-void WMGetTriggersForResourePlanResponse::__set_triggers(const std::vector<WMTrigger> & val) {
+void WMGetTriggersForResourcePlanResponse::__set_triggers(const std::vector<WMTrigger> & val) {
   this->triggers = val;
 __isset.triggers = true;
 }
-std::ostream& operator<<(std::ostream& out, const WMGetTriggersForResourePlanResponse& obj)
+std::ostream& operator<<(std::ostream& out, const WMGetTriggersForResourcePlanResponse& obj)
 {
   obj.printTo(out);
   return out;
 }
 
 
-uint32_t WMGetTriggersForResourePlanResponse::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t WMGetTriggersForResourcePlanResponse::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   ::apache::thrift::protocol::TInputRecursionTracker tracker(*iprot);
   uint32_t xfer = 0;
@@ -36191,10 +36191,10 @@ uint32_t WMGetTriggersForResourePlanResponse::read(::apache::thrift::protocol::T
   return xfer;
 }
 
-uint32_t WMGetTriggersForResourePlanResponse::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t WMGetTriggersForResourcePlanResponse::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
   ::apache::thrift::protocol::TOutputRecursionTracker tracker(*oprot);
-  xfer += oprot->writeStructBegin("WMGetTriggersForResourePlanResponse");
+  xfer += oprot->writeStructBegin("WMGetTriggersForResourcePlanResponse");
 
   if (this->__isset.triggers) {
     xfer += oprot->writeFieldBegin("triggers", ::apache::thrift::protocol::T_LIST, 1);
@@ -36214,24 +36214,24 @@ uint32_t WMGetTriggersForResourePlanResponse::write(::apache::thrift::protocol::
   return xfer;
 }
 
-void swap(WMGetTriggersForResourePlanResponse &a, WMGetTriggersForResourePlanResponse &b) {
+void swap(WMGetTriggersForResourcePlanResponse &a, WMGetTriggersForResourcePlanResponse &b) {
   using ::std::swap;
   swap(a.triggers, b.triggers);
   swap(a.__isset, b.__isset);
 }
 
-WMGetTriggersForResourePlanResponse::WMGetTriggersForResourePlanResponse(const WMGetTriggersForResourePlanResponse& other1312) {
+WMGetTriggersForResourcePlanResponse::WMGetTriggersForResourcePlanResponse(const WMGetTriggersForResourcePlanResponse& other1312) {
   triggers = other1312.triggers;
   __isset = other1312.__isset;
 }
-WMGetTriggersForResourePlanResponse& WMGetTriggersForResourePlanResponse::operator=(const WMGetTriggersForResourePlanResponse& other1313) {
+WMGetTriggersForResourcePlanResponse& WMGetTriggersForResourcePlanResponse::operator=(const WMGetTriggersForResourcePlanResponse& other1313) {
   triggers = other1313.triggers;
   __isset = other1313.__isset;
   return *this;
 }
-void WMGetTriggersForResourePlanResponse::printTo(std::ostream& out) const {
+void WMGetTriggersForResourcePlanResponse::printTo(std::ostream& out) const {
   using ::apache::thrift::to_string;
-  out << "WMGetTriggersForResourePlanResponse(";
+  out << "WMGetTriggersForResourcePlanResponse(";
   out << "triggers="; (__isset.triggers ? (out << to_string(triggers)) : (out << "<null>"));
   out << ")";
 }

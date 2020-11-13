@@ -654,9 +654,9 @@ class WMDropTriggerRequest; end
 
 class WMDropTriggerResponse; end
 
-class WMGetTriggersForResourePlanRequest; end
+class WMGetTriggersForResourcePlanRequest; end
 
-class WMGetTriggersForResourePlanResponse; end
+class WMGetTriggersForResourcePlanResponse; end
 
 class WMCreatePoolRequest; end
 
@@ -5793,7 +5793,7 @@ class WMDropTriggerResponse
   ::Thrift::Struct.generate_accessors self
 end
 
-class WMGetTriggersForResourePlanRequest
+class WMGetTriggersForResourcePlanRequest
   include ::Thrift::Struct, ::Thrift::Struct_Union
   RESOURCEPLANNAME = 1
   NS = 2
@@ -5811,7 +5811,7 @@ class WMGetTriggersForResourePlanRequest
   ::Thrift::Struct.generate_accessors self
 end
 
-class WMGetTriggersForResourePlanResponse
+class WMGetTriggersForResourcePlanResponse
   include ::Thrift::Struct, ::Thrift::Struct_Union
   TRIGGERS = 1
 
