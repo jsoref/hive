@@ -43,7 +43,7 @@ public class TestHiveMetaToolCommandLine {
     assertFalse(cl.isExecuteJDOQL());
     assertNull(cl.getJDOQLQuery());
     assertFalse(cl.isUpdateLocation());
-    assertNull(cl.getUpddateLocationParams());
+    assertNull(cl.getUpdateLocationParams());
     assertFalse(cl.isDryRun());
     assertNull(cl.getSerdePropKey());
     assertNull(cl.getTablePropKey());
@@ -56,7 +56,7 @@ public class TestHiveMetaToolCommandLine {
     assertTrue(cl.isExecuteJDOQL());
     assertEquals("select a from b", cl.getJDOQLQuery());
     assertFalse(cl.isUpdateLocation());
-    assertNull(cl.getUpddateLocationParams());
+    assertNull(cl.getUpdateLocationParams());
     assertFalse(cl.isDryRun());
     assertNull(cl.getSerdePropKey());
     assertNull(cl.getTablePropKey());
@@ -71,8 +71,8 @@ public class TestHiveMetaToolCommandLine {
     assertFalse(cl.isExecuteJDOQL());
     assertNull(cl.getJDOQLQuery());
     assertTrue(cl.isUpdateLocation());
-    assertEquals("hdfs://new.loc", cl.getUpddateLocationParams()[0]);
-    assertEquals("hdfs://old.loc", cl.getUpddateLocationParams()[1]);
+    assertEquals("hdfs://new.loc", cl.getUpdateLocationParams()[0]);
+    assertEquals("hdfs://old.loc", cl.getUpdateLocationParams()[1]);
     assertTrue(cl.isDryRun());
     assertEquals("abc", cl.getSerdePropKey());
     assertEquals("def", cl.getTablePropKey());

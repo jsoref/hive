@@ -197,7 +197,7 @@ class HiveMetaToolCommandLine {
     return updateLocationParams != null;
   }
 
-  String[] getUpddateLocationParams() {
+  String[] getUpdateLocationParams() {
     return updateLocationParams;
   }
 
