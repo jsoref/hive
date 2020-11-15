@@ -1238,7 +1238,7 @@ public class StatsRulesProcFactory {
 
               // if column name is not contained in needed column list then it
               // is a partition column. We do not need to evaluate partition columns
-              // in filter expression since it will be taken care by partitio pruner
+              // in filter expression since it will be taken care by partition pruner
               if (neededCols != null && !neededCols.contains(colName)) {
                 return numRows;
               }
@@ -1259,7 +1259,7 @@ public class StatsRulesProcFactory {
 
                 // if column name is not contained in needed column list then it
                 // is a partition column. We do not need to evaluate partition columns
-                // in filter expression since it will be taken care by partitio pruner
+                // in filter expression since it will be taken care by partition pruner
                 if (neededCols != null && neededCols.indexOf(colName) == -1) {
                   return numRows;
                 }

@@ -545,10 +545,10 @@ public class JsonMetaDataFormatter implements MetaDataFormatter {
   public void showTablePartitions(DataOutputStream out, List<String> parts)
       throws HiveException {
     asJson(out, MapBuilder.create().put("partitions",
-        makeTablePartions(parts)).build());
+        makeTablePartitions(parts)).build());
   }
 
-  private List<Map<String, Object>> makeTablePartions(List<String> parts) {
+  private List<Map<String, Object>> makeTablePartitions(List<String> parts) {
     ArrayList<Map<String, Object>> res =
         new ArrayList<Map<String, Object>>(parts.size());
     for (String part : parts) {
