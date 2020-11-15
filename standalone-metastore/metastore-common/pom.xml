@@ -317,7 +317,7 @@
                   <goal>replace</goal>
                 </goals>
                 <configuration>
-                  <basedir>${basedir}/src/gen/thrift/gen-javabean/org/apache/hadoop/hive/metastore/api/</basedir>
+                  <basedir>${basedir}/src/gen/thrift/gen-javabean/org.apache.hadoop.hive.metastore/api/</basedir>
                   <includes>
                     <include>FieldSchema.java</include>
                     <include>Partition.java</include>
@@ -338,7 +338,7 @@
                   <goal>replace</goal>
                 </goals>
                 <configuration>
-                  <basedir>${basedir}/src/gen/thrift/gen-javabean/org/apache/hadoop/hive/metastore/api/</basedir>
+                  <basedir>${basedir}/src/gen/thrift/gen-javabean/org.apache.hadoop.hive.metastore/api/</basedir>
                   <filesToInclude>*.java</filesToInclude>
                   <replacements>
                     <replacement>
@@ -504,7 +504,7 @@
               <protocArtifact>${protobuf.group}:protoc:${protobuf-exc.version}</protocArtifact>
               <addSources>none</addSources>
               <inputDirectories>
-                <include>${basedir}/src/main/protobuf/org/apache/hadoop/hive/metastore</include>
+                <include>${basedir}/src/main/protobuf/org.apache.hadoop.hive.metastore</include>
               </inputDirectories>
             </configuration>
           </execution>

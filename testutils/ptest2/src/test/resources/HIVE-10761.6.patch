@@ -2100,11 +2100,11 @@ index 0000000..8749349
 +    Assert.assertEquals(countNode.asInt(), 5);
 +  }
 +}
-diff --git a/itests/hive-unit/src/test/java/org/apache/hadoop/hive/metastore/TestMetaStoreMetrics.java b/itests/hive-unit/src/test/java/org/apache/hadoop/hive/metastore/TestMetaStoreMetrics.java
+diff --git a/itests/hive-unit/src/test/java/org.apache.hadoop.hive.metastore/TestMetaStoreMetrics.java b/itests/hive-unit/src/test/java/org.apache.hadoop.hive.metastore/TestMetaStoreMetrics.java
 new file mode 100644
 index 0000000..25f34d1
 --- /dev/null
-+++ b/itests/hive-unit/src/test/java/org/apache/hadoop/hive/metastore/TestMetaStoreMetrics.java
++++ b/itests/hive-unit/src/test/java/org.apache.hadoop.hive.metastore/TestMetaStoreMetrics.java
 @@ -0,0 +1,94 @@
 +/**
 + * Licensed to the Apache Software Foundation (ASF) under one
@@ -2200,10 +2200,10 @@ index 0000000..25f34d1
 +    Assert.assertTrue(countNode.asInt() > 0);
 +  }
 +}
-diff --git a/metastore/src/java/org/apache/hadoop/hive/metastore/HiveMetaStore.java b/metastore/src/java/org/apache/hadoop/hive/metastore/HiveMetaStore.java
+diff --git a/metastore/src/java/org.apache.hadoop.hive.metastore/HiveMetaStore.java b/metastore/src/java/org.apache.hadoop.hive.metastore/HiveMetaStore.java
 index d81c856..1688920 100644
---- a/metastore/src/java/org/apache/hadoop/hive/metastore/HiveMetaStore.java
-+++ b/metastore/src/java/org/apache/hadoop/hive/metastore/HiveMetaStore.java
+--- a/metastore/src/java/org.apache.hadoop.hive.metastore/HiveMetaStore.java
++++ b/metastore/src/java/org.apache.hadoop.hive.metastore/HiveMetaStore.java
 @@ -18,39 +18,14 @@
  
  package org.apache.hadoop.hive.metastore;
