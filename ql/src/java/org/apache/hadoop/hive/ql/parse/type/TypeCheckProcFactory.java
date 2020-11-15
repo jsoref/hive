@@ -789,7 +789,7 @@ public class TypeCheckProcFactory<T> {
     }
 
     private boolean unSafeCompareWithBigInt(TypeInfo otherTypeInfo, TypeInfo bigintCandidate) {
-      Set<PrimitiveObjectInspector.PrimitiveCategory> unsafeConventionTyps = Sets.newHashSet(
+      Set<PrimitiveObjectInspector.PrimitiveCategory> unsafeConventionTypes = Sets.newHashSet(
           PrimitiveObjectInspector.PrimitiveCategory.STRING,
           PrimitiveObjectInspector.PrimitiveCategory.VARCHAR,
           PrimitiveObjectInspector.PrimitiveCategory.CHAR);
@@ -797,7 +797,7 @@ public class TypeCheckProcFactory<T> {
       if (bigintCandidate.equals(TypeInfoFactory.longTypeInfo) && otherTypeInfo instanceof PrimitiveTypeInfo) {
         PrimitiveObjectInspector.PrimitiveCategory pCategory =
             ((PrimitiveTypeInfo)otherTypeInfo).getPrimitiveCategory();
-        return unsafeConventionTyps.contains(pCategory);
+        return unsafeConventionTypes.contains(pCategory);
       }
       return false;
     }
