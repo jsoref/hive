@@ -310,12 +310,12 @@ public class MiniZooKeeperCluster {
           KEY_STORE_TRUST_STORE_PASSWORD);
       serverCnxnFactory = ServerCnxnFactory.createFactory();
       serverCnxnFactory.configure(new InetSocketAddress(currentClientPort),
-          configuration.getInt(HConstants.ZOOKEEPER_MAX_CLIENT_CNXNS, HConstants.DEFAULT_ZOOKEPER_MAX_CLIENT_CNXNS),
+          configuration.getInt(HConstants.ZOOKEEPER_MAX_CLIENT_CNXNS, HConstants.DEFAULT_ZOOKEEPER_MAX_CLIENT_CNXNS),
           true);
     } else {
       serverCnxnFactory = ServerCnxnFactory.createFactory();
       serverCnxnFactory.configure(new InetSocketAddress(currentClientPort),
-          configuration.getInt(HConstants.ZOOKEEPER_MAX_CLIENT_CNXNS, HConstants.DEFAULT_ZOOKEPER_MAX_CLIENT_CNXNS));
+          configuration.getInt(HConstants.ZOOKEEPER_MAX_CLIENT_CNXNS, HConstants.DEFAULT_ZOOKEEPER_MAX_CLIENT_CNXNS));
     }
     return serverCnxnFactory;
   }
