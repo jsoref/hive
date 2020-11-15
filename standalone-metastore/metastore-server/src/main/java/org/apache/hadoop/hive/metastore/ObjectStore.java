@@ -9079,9 +9079,9 @@ public class ObjectStore implements RawStore, Configurable {
               filter.append(")");
               query.setFilter(filter.toString());
               query.declareParameters(paramStr.toString());
-              List<MTableColumnStatistics> paritial = (List<MTableColumnStatistics>) query.executeWithArray(params);
-              pm.retrieveAll(paritial);
-              return paritial;
+              List<MTableColumnStatistics> partial = (List<MTableColumnStatistics>) query.executeWithArray(params);
+              pm.retrieveAll(partial);
+              return partial;
             }
           });
 
